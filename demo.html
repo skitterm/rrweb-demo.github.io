@@ -5791,6 +5791,12 @@
       sheet.replaceSync("p { color: red; }");
 
       document.adoptedStyleSheets.push(sheet);
+
+      const domSnapshot = snapshot(document);
+
+      document.documentElement.remove();
+
+      rebuild(domSnapshot, { doc: document });
     </script>
   </body>
 </html>
