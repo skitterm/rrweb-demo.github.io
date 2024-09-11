@@ -2,9 +2,9 @@
   <head></head>
   <body>
     <h1>Constructible stylesheet in "normal" page</h1>
-    <p>Styled by constructible stylesheet</p>
+    <p>Styled by constructible stylesheet (should be red)</p>
     <script>
-      // v 2.0.0-alpha.17
+      // rrweb-snapshot v 2.0.0-alpha.17
       var __defProp = Object.defineProperty;
       var __defNormalProp = (obj, key, value) =>
         key in obj
@@ -5786,19 +5786,15 @@
         return node2;
       }
 
+      // create a constructed stylesheet
       const sheet = new CSSStyleSheet();
-
       sheet.replaceSync("p { color: red; }");
-
       document.adoptedStyleSheets.push(sheet);
 
       const domSnapshot = snapshot(document);
 
+      // to simulate loading the snapshot in a new document, clear the adopted stylesheets and remove the document element
       document.documentElement.remove();
-      document.adoptedStyleSheets.forEach((sheet) => {
-        console.log(sheet.cssRules);
-      });
-
       while (document.adoptedStyleSheets.length) {
         document.adoptedStyleSheets.pop();
       }
