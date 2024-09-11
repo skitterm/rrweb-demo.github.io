@@ -5795,7 +5795,9 @@
       const domSnapshot = snapshot(document);
 
       document.documentElement.remove();
-      console.log("sheets", document.adoptedStyleSheets);
+      document.adoptedStyleSheets.forEach((sheet) => {
+        console.log(sheet.cssRules);
+      });
 
       rebuild(domSnapshot, { doc: document });
     </script>
