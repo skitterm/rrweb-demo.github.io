@@ -1,0 +1,13 @@
+<html>
+  <head></head>
+  <body>
+    <h1>Constructible stylesheet in "normal" page</h1>
+    <p>Styled by constructible stylesheet (should be red)</p>
+    <script>
+      // create a constructed stylesheet
+      const sheet = new CSSStyleSheet();
+      sheet.replaceSync("p { color: red; }");
+      document.adoptedStyleSheets.push(sheet);
+    </script>
+  </body>
+</html>
