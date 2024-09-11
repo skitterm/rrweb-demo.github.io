@@ -5799,6 +5799,10 @@
         console.log(sheet.cssRules);
       });
 
+      while (document.adoptedStyleSheets.length) {
+        document.adoptedStyleSheets.pop();
+      }
+
       rebuild(domSnapshot, { doc: document });
     </script>
   </body>
